@@ -4,18 +4,20 @@
     <title>AdSense Wrapper - Runtime Example using URL Patterns</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <link rel="stylesheet" type="text/css" href="../css/base.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../css/base.min.css" media="all" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" charset="utf-8"></script>
     <script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>
     <script type='text/javascript'>
-    GS_googleAddAdSenseService("ca-pub-xxxxxxxxxxxxxxxx");
+    GS_googleAddAdSenseService("xx-xxx-xxxxxxxxxxxxxxxx");
     GS_googleEnableAllServices();
     </script>
     <script type="text/javascript" src="../js/adsense-wrapper.min.js"></script>
     <script type="text/javascript">
-    adsense_wrapper.set_pub_id('ca-pub-xxxxxxxxxxxxxxxx');
+    adsense_wrapper.set_pub_id('xx-xxx-xxxxxxxxxxxxxxxx');
     adsense_wrapper.set_url_patterns([
-        ['.*', [['#main-leaderboard', 'leaderboard_ad'], ['#ad1', 'med_rec_ad'], ['#ad2', 'small_rec_ad1'], ['#ad3', 'small_rec_ad2']]] // Default
+        ['^/$', [['#main-leaderboard', 'leaderboard_ad'], ['#ad1', 'med_rec_ad'], ['#ad2', 'small_rec_ad1'], ['#ad3', 'small_rec_ad2']]],        // Home Page
+        ['^/blog.+$', [['#main-leaderboard', 'leaderboard_ad'], ['#ad1', 'med_rec_ad'], ['#ad2', 'small_rec_ad1'], ['#ad3', 'small_rec_ad2']]],  // Blog Section
+        ['.*', [['#main-leaderboard', 'leaderboard_ad'], ['#ad1', 'med_rec_ad'], ['#ad2', 'small_rec_ad1'], ['#ad3', 'small_rec_ad2']]]          // Default
     ]);
     </script>
     <!--[if !IE 7]>
@@ -31,6 +33,9 @@
             <header class="main container_16 clearfix">
                 <div class="grid_16">
                     <p><a href="index.html">&laquo; Return to Examples</a></p>
+                    <div class="warning">
+                        <p>These examples don't work until you set the publisher ID to your <a href="https://www.google.com/dfp/info/welcome.html">DoubleClick for Publishers</a> ID and you add in your own ad slots from your own account.</p>
+                    </div>
                     <div id="main-leaderboard" class="leaderboard-ad ad">
                     <script type="text/javascript">
                     fill_ad_slot('#main-leaderboard');
@@ -41,6 +46,11 @@
             </header>
             <div id="content-container" class="col-one container_16">
                 <div id="main-content" class="grid_12">
+
+                    <div class="info example-notes">
+                        <p>The main advantage to this method is being able to define URL patterns that are associated with the ad slots you want to use and the ad slot containers you want to fill. This helps out on large sites where you might have lots of different ad slots.</p>
+                    </div>
+
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum leo eget velit commodo fringilla. Vivamus porttitor metus non nulla hendrerit rutrum. Suspendisse mollis metus eu quam cursus aliquam. Ut ac leo lorem, et interdum metus. Sed erat magna, suscipit eu imperdiet quis, posuere eu purus. Proin blandit odio quis lectus dignissim ullamcorper. Aenean sollicitudin scelerisque nisl sed condimentum. Donec eu dui eu sem posuere cursus. Suspendisse tristique posuere luctus. Donec non egestas ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam at neque a nibh sagittis sodales. Vestibulum feugiat viverra ipsum, ut tincidunt orci vulputate porta. Etiam sit amet urna lectus, eget tristique lacus. Aliquam id malesuada eros.</p>
 
                     <p>Proin dignissim risus sed augue consectetur accumsan luctus dolor bibendum. In vitae nisi lorem, eleifend vestibulum lacus. Aenean cursus accumsan est, eget iaculis sapien placerat eget. Nulla id velit sit amet tellus tempus malesuada. Nunc semper, tortor luctus blandit feugiat, augue ligula lobortis magna, volutpat commodo mauris urna quis nulla. Pellentesque pellentesque, massa in vulputate rhoncus, est tellus semper ligula, vitae imperdiet arcu enim vel dui. Sed massa justo, sagittis sit amet porta non, scelerisque in neque. Sed commodo commodo massa, sed condimentum enim mollis vel. Proin ut metus non mi sagittis lobortis. Sed tellus turpis, blandit quis pharetra ac, condimentum et sapien. Nunc eu est nulla. Pellentesque sem ante, feugiat vitae consequat non, ornare in nisl.</p>

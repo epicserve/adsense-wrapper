@@ -1,5 +1,5 @@
 /*!
- * AdSense Wrapper v0.1
+ * AdSense Wrapper v0.1.1
  *
  * Copyright 2011, Brent O'Connor (http://www.epicserve.com/)
  * Dual licensed under the MIT or GPL Version 2 licenses.
@@ -19,6 +19,9 @@ var adsense_wrapper = function($) {
     var timeout_count = 0;
     var pub_id = "";
 
+    /**
+     * Adds ad slots using GA_googleAddSlot and GA_googleFetchAds
+     */
     function add_ad_slots(ad_slot_arr) {
         $.each(ad_slot_arr, function(k, v) {
             var ad_slot_arr = v[1];
